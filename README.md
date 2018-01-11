@@ -24,7 +24,7 @@ Core features:
 ### how to use:  
 
  1. `git clone https://github.com/k-five/bline`  
- 2. `cd src/`  
+ 2. `cd bline/src/`  
  3. `make build`
 
 ### how to use (screenshot):  
