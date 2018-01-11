@@ -81,9 +81,10 @@ You can raise an issue or contact me via the email on the page of my profile.
 This app have been designed mostly for educational purpose then colorizing some lines.
 Although it looks like that, but I added a lot of comments so you can read the source
 code easily. The two main goals in this app are:
- 1. how to use pointers and pointer arithmetic effectively
+ 1. how to use pointers and pointer arithmetic effectively  
  2. how to use heap effectively  
-
+ 3. how to use `bitwise` operators (see str2hex() function)  
+ 
 ### code generation example (screenshot)  
 
 ![dump.png](https://github.com/k-five/bline/blob/master/screenshot/dump.png)  
