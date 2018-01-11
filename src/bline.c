@@ -377,7 +377,7 @@ void mode()
         "    only one can be used\n"
         "\n"
         "    text-mode:\n"
-        "    [italic,underline,blink,cross]\n"
+        "    [italic,underline,blink,reverse,hide,cross]\n"
         "    all four can be used together\n"
         "\n"
         "    foreground:\n"
