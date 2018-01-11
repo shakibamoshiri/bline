@@ -37,7 +37,7 @@ that you have like: `/usr/bin/` or create your own path in `~/bin/` an put it
 there. Or just use it in-place: `ls | ./bline -a red`    
   
 
-## example:  
+### example:  
 ```
 # all lines, foreground red:
 ls | bline -a red
@@ -67,17 +67,17 @@ df | bline -H -a 00ff00:ff0000
 df | bline -H -a :ffff00
 ```
 
-## NOTE(s)  
+### NOTE(s)  
  1. The app creates code dynamically. If you are interested in see: `ansi_code.h`   
  2. For non-HEX value it supports **color-mode** and **text-mode** and **foreground-color** and **background-color**.  
  3. But for HEX value it supports only **foreground-color** and **background-color**.  
 
 
-## Your Feedback  
+### Your Feedback  
 Let me know if you have/had any issue(s).  
 You can raise an issue or contact me via the email on the page of my profile.  
 
-## Goal
+### Goal
 This app have been designed mostly for educational purpose then colorizing some lines.
 Although it looks like that, but I added a lot of comments so you can read the source
 code easily. The two main goals in this app are:
@@ -102,5 +102,5 @@ For more screenshots see **screenshots** directory
 <br>
 
 
-# License  
+### License  
 License GPL-3  
