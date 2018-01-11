@@ -98,7 +98,7 @@ For more screenshots see [**screenshots**](https://github.com/k-five/bline/tree/
 ### more details on  
  - [Wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)  
  - [How to change the output color of echo in Linux](https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux/28938235#28938235)  
- 
+ - [ANSI escape sequences](http://ascii-table.com/ansi-escape-sequences.php)
 
 <br>
 
