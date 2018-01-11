@@ -19,7 +19,7 @@ There is no prerequisite except **compile** it with a `C` compiler.
 Core features:  
  - support 3/4 bits : `ESC[Value;...;m`  
  - support 24 bits  : `ESC[(38|48);2;...;m`  
- - code generation (= dump code)  
+ - code generation (= dump code) see the second screenshot  
 
 ### how to use:  
 
@@ -37,7 +37,7 @@ that you have like: `/usr/bin/` or create your own path in `~/bin/` an put it
 there. Or just use it in-place: `ls | ./bline -a red`    
   
 
-### example:  
+### examples:  
 ```
 # all lines, foreground red:
 ls | bline -a red
@@ -73,11 +73,11 @@ df | bline -H -a :ffff00
  3. But for HEX value it supports only **foreground-color** and **background-color**.  
 
 
-### Your Feedback  
+### your feedback  
 Let me know if you have/had any issue(s).  
 You can raise an issue or contact me via the email on the page of my profile.  
 
-### Goal
+### goal
 This app have been designed mostly for educational purpose then colorizing some lines.
 Although it looks like that, but I added a lot of comments so you can read the source
 code easily. The two main goals in this app are:
@@ -88,13 +88,13 @@ code easily. The two main goals in this app are:
 
 ![dump.png](https://github.com/k-five/bline/blob/master/screenshot/dump.png)  
 
-For more screenshots see **screenshots** directory
+For more screenshots see [**screenshots**](https://github.com/k-five/bline/tree/master/screenshot) directory
 
 
 <br>
 
 
-### More details on  
+### more details on  
  - [Wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)  
  - [How to change the output color of echo in Linux](https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux/28938235#28938235)  
  
