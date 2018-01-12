@@ -1,2 +1,7 @@
 language: c
-made debug
+sudo: false # only for faster builds
+script:
+  - make debug
+  - ./bline
+
+
