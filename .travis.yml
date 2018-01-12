@@ -1,6 +1,2 @@
 language: c
-compiler:
-  - clang
-  - gcc
-
 made debug
