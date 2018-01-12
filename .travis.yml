@@ -1,7 +1,9 @@
 language: c
 sudo: false # only for faster builds
 script:
-  - make debug
-  - ./bline
+  - gcc -c src/*.c
+  - gcc -o t *.o
+  - ./t
+  
 
 
