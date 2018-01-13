@@ -67,6 +67,9 @@ df | bline -H -a 00ff00:ff0000
 
 # hex just background
 df | bline -H -a :ffff00
+
+# look for string: 'sda' and make that/those line(s) green
+lsblk | bline -m sda light:green
 ```
 
 ### NOTE(s)  
