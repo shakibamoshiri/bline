@@ -1,3 +1,6 @@
+# compiler name
+CC	= gcc
+
 # compiler flags
 check_error		= -Wall 
 check_memory	= -fsanitize=address 
@@ -16,20 +19,20 @@ temp_files		= `echo *~`
 
 debug:
 	@echo -n "compile: $(sources)"
-	@gcc $(build_object) $(sources) $(check_error) $(check_memory)
+	@$(CC) $(build_object) $(sources) $(check_error) $(check_memory)
 	@echo '... okay'
 
 	@echo -n "linking: $(objects)"
-	@gcc $(objects) $(filename) $(check_error) $(check_memory)
+	@$(CC) $(objects) $(filename) $(check_error) $(check_memory)
 	@echo '... okay'
 
 build:
 	@echo -n "compile: $(sources)"
-	@gcc $(build_object) $(sources) $(check_error)
+	@$(CC) $(build_object) $(sources) $(check_error)
 	@echo '... okay'
 
 	@echo -n "linking: $(objects)"
-	@gcc $(objects) $(optimize) $(filename) $(check_error)
+	@$(CC) $(objects) $(optimize) $(filename) $(check_error)
 	@echo '... okay'
 
 clean:
