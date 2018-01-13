@@ -1,8 +1,6 @@
 
 ![babbar,gif](https://github.com/k-five/bline/blob/master/screenshot/banner.gif)
 
-<hr>
-
 [![Build Status](https://travis-ci.org/k-five/bline.svg?branch=master)](https://travis-ci.org/k-five/bline)
 
 <hr>
