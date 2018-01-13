@@ -27,6 +27,7 @@ int main( int argc, char** argv )
     short flag_last  = 0;
     short flag_indi  = 0;
     short flag_range = 0;
+    short flag_match = 0;
     short flag_HEX   = 0;
     short flag_dump  = 0;
 
@@ -40,6 +41,9 @@ int main( int argc, char** argv )
     int range_value_start = 0;
     int range_value_end   = 0;
     const char* range_value = "";
+
+    // for strore the string we are looking for
+    const char* match = "";
 
     // buffer for storing raw data input from the user
     // like: light:italic:red:green
@@ -58,6 +62,7 @@ int main( int argc, char** argv )
     // -I
     // -r    --range
     // -R
+    // -m    --match
     // -H
     // -d    --dump
     // -E    --example
@@ -66,7 +71,7 @@ int main( int argc, char** argv )
     // -h    --help
 
     // short options
-    const char* short_option = "a:e:o:f:l:i:I:r:R:dHEMvh";
+    const char* short_option = "a:e:o:f:l:i:I:r:R:m:dHEMvh";
 
     // long options
     static struct option long_option [] =
@@ -80,6 +85,7 @@ int main( int argc, char** argv )
         { "",           1, NULL, 'I' }, // for empty long option we should NOT use NULL
         { "range",      1, NULL, 'r' },
         { "",           1, NULL, 'R' }, // for empty long option we should NOT use NULL
+        { "match",      1, NULL, 'm' },
         { "HEX",        0, NULL, 'H' },
         { "dump",       0, NULL, 'd' },
         { "example",    0, NULL, 'E' },
@@ -221,6 +227,41 @@ int main( int argc, char** argv )
             }
             break;
 
+        case 'm':
+            // word(s) that we are going to look for
+            match = optarg;
+
+            // if argc == optind, it means there is no arguments after optarg
+            // if we do not do this check, then when this option is empty we
+            // will get segmentation fault: SIGSEGV
+            if( argc == optind )
+            {
+                printf( "require option for -m after %s [enter-color-name]\n", match );
+                exit( EXIT_FAILURE );
+            }
+
+            const char* color = *( argv + optind ); // or argv[ optind ];
+
+            // the color name should not start with a dash option '-'
+            // for example: ./bline -m main.c -e red
+            // is this case color becomes equal '-e'
+            if( *color == '-' )
+            {
+                printf( "wrong color name for -m after match: [%s]\n", match );
+                exit( EXIT_FAILURE );
+            }
+
+            length = strlen( color );
+
+            memcpy( ri, "MATCH=", 6 );
+            ri += 6;
+
+            memcpy( ri, color, length );
+            ri += length;
+            *( ri++ ) = '\n';
+            flag_match = 1;
+            break;
+
         case 'H':
             flag_HEX = 1;
             break;
@@ -260,14 +301,15 @@ int main( int argc, char** argv )
         }
     }
 
-    if( optind < argc )
-    {
-        while( optind < argc )
-        {
-            printf("there is no option for: (%s)\n", argv[ optind++ ] );
-        }
-        exit( EXIT_FAILURE );
-    }
+    // Ignore, because of conflicting with using two argument in -m flag
+    /* if( optind < argc ) */
+    /* { */
+    /*     while( optind < argc ) */
+    /*     { */
+    /*         printf("there is no option for: (%s)\n", argv[ optind++ ] ); */
+    /*     } */
+    /*     exit( EXIT_FAILURE ); */
+    /* } */
 
     // At this point we have our buffer that contains all arguments that
     // user has entered. And we should parse it to make/create an array of
@@ -470,6 +512,10 @@ int main( int argc, char** argv )
     const char*  range = strstr( colors, "RANGE=" ) + 6;
     const size_t range_length = strstr( colors, "ENDRANGE" ) - range;
 
+    // cmatch, because we already have match variable
+    const char*  cmatch = strstr( colors, "MATCH=" ) + 6;
+    const size_t cmatch_length = strstr( colors, "ENDMATCH" ) - cmatch;
+
 
     // doing dump if the user has used -d option
     if( flag_dump )
@@ -533,6 +579,11 @@ int main( int argc, char** argv )
         {
             printf( "--range      %.*s beautiful line output\033[m      => echo -e '\\033[%.*s#####\\033[m'\n",
                     ( range_length + 6 ), ( range - 6 ), ( range_length - START_ESCAPE_SIZE ),  ( range + START_ESCAPE_SIZE ) );
+        }
+        if( flag_match )
+        {
+            printf( "--match      %.*s beautiful line output\033[m      => echo -e '\\033[%.*s#####\\033[m'\n",
+                    ( cmatch_length + 6 ), ( cmatch - 6 ), ( cmatch_length - START_ESCAPE_SIZE ),  ( cmatch + START_ESCAPE_SIZE ) );
         }
 
         exit( EXIT_SUCCESS );
@@ -658,6 +709,24 @@ int main( int argc, char** argv )
                 continue;
             }
         }
+
+        if( flag_match )
+        {
+            if( strstr( line, match ) != NULL )
+            {
+                memcpy( cptr, cmatch, cmatch_length );
+                cptr += cmatch_length;
+
+                memcpy( cptr, line, nread_minus_one );
+                cptr += nread_minus_one;
+
+                memcpy( cptr, BLINE_EOL, BLINE_EOL_SIZE );
+                cptr += BLINE_EOL_SIZE;
+
+                continue;
+            }
+        }
+
 
         if( flag_indi )
         {
