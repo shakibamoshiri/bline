@@ -1,5 +1,5 @@
 <p id="top" align="center">
-  <a href="usage">
+  <a href="#usage">
     <img src="./res/usage.svg" />
   </a>
   <a href="#examples">
