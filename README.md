@@ -1,45 +1,69 @@
+<p id="top" align="center">
+</p>
+<br>
+<br>
 
-![babbar,gif](https://github.com/k-five/bline/blob/master/screenshot/banner.gif)
+<img src="https://github.com/k-five/bline/blob/master/screenshot/banner.gif" />
 
-[![Build Status](https://travis-ci.org/k-five/bline.svg?branch=master)](https://travis-ci.org/k-five/bline)
+<br>
 
-<hr>
+<p align="center">
+welcome to "beautiful line output"<br>
+A simple CLI application for testing ANSI color written in `C`.
+</p>
 
+<br>
 
-█░░░█ █▀▀ █░░ █▀▀ █▀▀█ █▀▄▀█ █▀▀  
-█▄█▄█ █▀▀ █░░ █░░ █░░█ █░▀░█ █▀▀  
-░▀░▀░ ▀▀▀ ▀▀▀ ▀▀▀ ▀▀▀▀ ▀░░░▀ ▀▀▀  
-to "beautiful line output" repository.  
-A simple CLI application for colorizing standard output written in `C`.  
+This is an application that you can use on your Console/Terminal.
+It provides you some simple + friendly + flexible options that you
+can use easily. There is no prerequisite except **compile** it with a `C` compiler.
 
-This is an application that you can use on your Console/Terminal.  
-It provides you some simple + friendly + flexible options that you  
-can use easily.  
+Core features:
+ - support 3/4 bits : `ESC[Value;...;m`
+ - support 24 bits  : `ESC[(38|48);2;...;m`
+ - code generation (= dump code) see the second screenshot
 
-There is no prerequisite except **compile** it with a `C` compiler.  
+<br>
+<br>
+<h1 id="usage" align="center">usage</h1>
+<p align="center">
+  &#9899; usage
+  &#9898; <a href="#example">examples</a>
+  &#9898; <a href="#NOTE">NOTE</a>
+  &#9898; <a href="#more">more</a>
+  &#9898; <a href="#bottom">bottom</a>
+  &#9898; <a href="#top">top</a>
+</p>
+<br>
 
-Core features:  
- - support 3/4 bits : `ESC[Value;...;m`  
- - support 24 bits  : `ESC[(38|48);2;...;m`  
- - code generation (= dump code) see the second screenshot  
-
-### how to use:  
-
- 1. `git clone https://github.com/k-five/bline`  
- 2. `cd bline/src/`  
+ 1. `git clone https://github.com/k-five/bline`
+ 2. `cd bline/src/`
  3. `make build`
 
-### how to use (screenshot):  
+<h3>usage (screenshot):</h3>
+<br>
+<br>
+<img src="https://github.com/k-five/bline/blob/master/screenshot/how-to-use.png" alt="how-to-use.png" />
+<br>
+<br>
 
-![how-to-use.png](https://github.com/k-five/bline/blob/master/screenshot/how-to-use.png)  
+Then you have a binary file named: **bline** and you can put it in a valid path
+that you have like: `/usr/bin/` or create your own path in `~/bin/` an put it
+there. Or just use it in-place: `ls | ./bline -a red`
 
-  
-Then you have a binary file named: **bline** and you can put it in a valid path  
-that you have like: `/usr/bin/` or create your own path in `~/bin/` an put it  
-there. Or just use it in-place: `ls | ./bline -a red`    
-  
+<br>
+<br>
+<h1 id="examples" align="center">examples</h1>
+<p align="center">
+  &#9898; <a href="#usage">usage</a>
+  &#9899; examples
+  &#9898; <a href="#NOTE">NOTE</a>
+  &#9898; <a href="#more">more</a>
+  &#9898; <a href="#bottom">bottom</a>
+  &#9898; <a href="#top">top</a>
+</p>
+<br>
 
-### examples:  
 ```
 # all lines, foreground red:
 ls | bline -a red
@@ -71,42 +95,73 @@ df | bline -H -a :ffff00
 # look for string: 'sda' and make that/those line(s) green
 lsblk | bline -m sda light:green
 ```
+<br>
+<br>
+<h1 id="NOTE" align="center">NOTE</h1>
+<p align="center">
+  &#9898; <a href="#usage">usage</a>
+  &#9898; <a href="#examples">examples</a>
+  &#9899; NOTE
+  &#9898; <a href="#more">more</a>
+  &#9898; <a href="#bottom">bottom</a>
+  &#9898; <a href="#top">top</a>
+</p>
+<br>
 
-### NOTE(s)  
- 1. The app creates code dynamically. If you are interested in see: `ansi_code.h`   
- 2. For non-HEX value it supports **color-mode** and **text-mode** and **foreground-color** and **background-color**.  
- 3. But for HEX value it supports only **foreground-color** and **background-color**.  
+ 1. The app creates code dynamically. If you are interested in see: `ansi_code.h`
+ 2. For non-HEX value it supports **color-mode** and **text-mode** and **foreground-color** and **background-color**.
+ 3. But for HEX value it supports only **foreground-color** and **background-color**.
 
 
-### your feedback  
-Let me know if you have/had any issue(s).  
-You can raise an issue or contact me via the email on the page of my profile.  
-
-### goal
+<h3>goal</h3>
 This app have been designed mostly for educational purpose then colorizing some lines.
 Although it looks like that, but I added a lot of comments so you can read the source
 code easily. The two main goals in this app are:
- 1. how to use pointers and pointer arithmetic effectively  
- 2. how to use heap effectively  
- 3. how to use `bitwise` operators (see str2hex() function)  
- 
-### code generation example (screenshot)  
+ 1. how to use pointers and pointer arithmetic effectively
+ 2. how to use heap effectively
+ 3. how to use `bitwise` operators (see str2hex() function)
 
-![dump.png](https://github.com/k-five/bline/blob/master/screenshot/dump.png)  
+<h3>code generation example (screenshot)</h3>
 
+<img src="https://github.com/k-five/bline/blob/master/screenshot/dump.png" alt="dump.png" />
+<br>
 For more screenshots see [**screenshots**](https://github.com/k-five/bline/tree/master/screenshot) directory
 
-
+<br>
 <br>
 
+<h1 id="more" align="center">more</h1>
+<p align="center">
+  &#9898; <a href="#usage">usage</a>
+  &#9898; <a href="#examples">examples</a>
+  &#9898; <a href="#NOTE">NOTE</a>
+  &#9899; more
+  &#9898; <a href="#bottom">bottom</a>
+  &#9898; <a href="#top">top</a>
+</p>
+<br>
 
-### more details on  
- - [Wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)  
- - [How to change the output color of echo in Linux](https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux/28938235#28938235)  
+ - [Wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)
+ - [How to change the output color of echo in Linux](https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux/28938235#28938235)
  - [ANSI escape sequences](http://ascii-table.com/ansi-escape-sequences.php)
 
 <br>
+<br>
 
-
-### License  
-License GPL-3  
+<h1 id="license" align="center">license</h1>
+<p align="center">
+  &#9898; <a href="#usage">usage</a>
+  &#9898; <a href="#examples">examples</a>
+  &#9898; <a href="#NOTE">NOTE</a>
+  &#9898; <a href="#more">more</a>
+  &#9899; bottom
+  &#9898; <a href="#top">top</a>
+</p>
+<p id="bottom" align="center">
+  bline copyright &copy; 2017 Shakiba
+  <br>
+  <br>
+  ▒█▀▀█ ▒█▀▀█ ▒█░░░ █▀▀█<br>
+  ▒█░▄▄ ▒█▄▄█ ▒█░░░ ░░▀▄<br>
+  ▒█▄▄█ ▒█░░░ ▒█▄▄█ █▄▄█<br>
+</p>
