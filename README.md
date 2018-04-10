@@ -1,5 +1,24 @@
 <p id="top" align="center">
+  <a href="usage">
+    <img src="./res/usage.svg" />
+  </a>
+  <a href="#examples">
+    <img src="./res/examples.svg" />
+  </a>
+  <a href="#NOTE">
+    <img src="./res/NOTE.svg" />
+  </a>
+  <a href="#more">
+    <img src="./res/more.svg" />
+  </a>
+  <a href="#bottom">
+    <img src="./res/bottom.svg" />
+  </a>
+  <a href="https://github.com/k-five/bline/blob/master/LICENSE">
+    <img src="./res/license.svg" />
+  </a>
 </p>
+
 <br>
 <br>
 
@@ -8,17 +27,18 @@
 <br>
 
 <p align="center">
-welcome to "beautiful line output"<br>
+welcome to <strong>beautiful line output</strong><br>
 A simple CLI application for testing ANSI color written in `C`.
 </p>
 
 <br>
 
 This is an application that you can use on your Console/Terminal.
-It provides you some simple + friendly + flexible options that you
+It provides you some simple + friendly + flexible options which you
 can use easily. There is no prerequisite except **compile** it with a `C` compiler.
 
-Core features:
+<h3>core features:</h3>
+
  - support 3/4 bits : `ESC[Value;...;m`
  - support 24 bits  : `ESC[(38|48);2;...;m`
  - code generation (= dump code) see the second screenshot
@@ -28,7 +48,7 @@ Core features:
 <h1 id="usage" align="center">usage</h1>
 <p align="center">
   &#9899; usage
-  &#9898; <a href="#example">examples</a>
+  &#9898; <a href="#examples">examples</a>
   &#9898; <a href="#NOTE">NOTE</a>
   &#9898; <a href="#more">more</a>
   &#9898; <a href="#bottom">bottom</a>
@@ -45,13 +65,11 @@ Core features:
 <br>
 <img src="https://github.com/k-five/bline/blob/master/screenshot/how-to-use.png" alt="how-to-use.png" />
 <br>
-<br>
 
 Then you have a binary file named: **bline** and you can put it in a valid path
 that you have like: `/usr/bin/` or create your own path in `~/bin/` an put it
 there. Or just use it in-place: `ls | ./bline -a red`
 
-<br>
 <br>
 <h1 id="examples" align="center">examples</h1>
 <p align="center">
@@ -125,7 +143,7 @@ code easily. The two main goals in this app are:
 
 <img src="https://github.com/k-five/bline/blob/master/screenshot/dump.png" alt="dump.png" />
 <br>
-For more screenshots see [**screenshots**](https://github.com/k-five/bline/tree/master/screenshot) directory
+For more screenshots see <a href="https://github.com/k-five/bline/tree/master/screenshot">screenshots</a> directory
 
 <br>
 <br>
